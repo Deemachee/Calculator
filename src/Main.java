@@ -28,17 +28,13 @@ public class Main {
         for (int i = 0; i < 2; i++) {
             //проверяем, является ли элемент массива арабским числом, если да - присваиваем переменной,
             //если нет - думаем что там римское число и преобразуем его в арабское
-            //если не получается, значит вводили не число и кидаем исключение
+            //если не получается, значит вводили не число и кидается исключение
             if (isNumeric(items[i])) {
                 number = Integer.parseInt(items[i]);
                 isArabicNumbers = true;
             } else {
-                try {
                     number = transformer.romanToArabic(items[i]);
                     isRomeNumbers = true;
-                } catch (NumberFormatException e) {
-                    throw new Exception("Формат математической операции не удовлетворяет заданию");
-                }
             }
             //проверяем, попадает ли число в диапазон от 1 до 10, если нет - кидаем исключение
             if (number >= 1 && number <= 10) {
@@ -53,7 +49,7 @@ public class Main {
         }
 
         //считаем результат операции в зависимости от знака
-        int result = 0;
+        int result;
         if (input.contains("+")) {
             result = twoNumbers[0] + twoNumbers[1];
         } else if (input.contains("-")) {
